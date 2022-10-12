@@ -1,9 +1,28 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { Toast } from 'vant'
+
+const handleClick = () => {
+  Toast.success('成功文案')
+}
 </script>
 
 <template>
+    <div
+    v-motion
+    :initial="{
+      opacity: 0,
+      y: 100,
+    }"
+    :enter="{
+      opacity: 1,
+      y: 0,
+    }"
+  >
+  <van-button type="danger" @click="handleClick">主要按钮</van-button>
+</div>
+
   <header>
     <div class="text-teal-100 aspect-video bg-red-500/80 rounded p-4">hello</div>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
