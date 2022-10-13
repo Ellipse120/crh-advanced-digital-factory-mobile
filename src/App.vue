@@ -1,7 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink } from 'vue-router'
 import { Toast } from 'vant'
+import Layouts from './layouts/index.vue'
 
 const handleClick = () => {
   Toast.success('成功文案')
@@ -24,12 +24,9 @@ const handleClick = () => {
 </div>
 
   <header>
-    <div class="text-teal-100 aspect-video bg-red-500/80 rounded p-4">hello</div>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <div class="text-teal-100 bg-red-500/80 rounded p-4">hello</div>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -37,7 +34,7 @@ const handleClick = () => {
     </div>
   </header>
 
-  <RouterView />
+  <Layouts />
 </template>
 
 <style scoped>
