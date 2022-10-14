@@ -7,7 +7,7 @@
     </template>
 
     <template #fallback>
-      <div class="text-red-600 text-2xl text-center p-4 h-40">Loading ...</div>
+      <div class="text-red-600 text-2xl text-center p-4 h-40">加载中 ...</div>
     </template>
   </Suspense>
 </template>
@@ -19,6 +19,6 @@ const error = ref(null)
 
 onErrorCaptured((e) => {
   error.value = e
-  console.log(error.value)
+  console.log(error.value, ' ---error')
 })
 </script>

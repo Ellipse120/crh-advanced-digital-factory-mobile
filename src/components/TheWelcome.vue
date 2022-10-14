@@ -5,7 +5,6 @@ import { useRequest } from '../composables/useRequest'
 
 const { isLoading, progress } = useNProgress()
 const users = ref([])
-const error = ref(null)
 
 function toggle() {
   isLoading.value = !isLoading.value

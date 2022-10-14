@@ -17,11 +17,11 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response) => {
-    console.log(response);
     return Promise.resolve(response)
   },
   (response) => {
-    Toast.fail(response.response?.data?.message || response.message || '服务出错了');
+    const errMsg = response.response?.data?.message || response.message || '服务出错了'
+    Toast.fail(errMsg)
     return Promise.reject(response)
   }
 )

@@ -20,8 +20,8 @@ const handleClick = () => {
       y: 0,
     }"
   >
-  <van-button type="danger" @click="handleClick">主要按钮</van-button>
-</div>
+    <van-button type="danger" @click="handleClick">主要按钮</van-button>
+  </div>
 
   <header>
     <div class="text-teal-100 bg-red-500/80 rounded p-4">hello</div>

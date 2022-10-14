@@ -21,4 +21,7 @@ app.use(createPinia())
 app.use(router)
 app.use(MotionPlugin)
 
+app.config.errorHandler = (err) => {
+  console.log(err, ' Error')
+}
 app.mount('#app')
