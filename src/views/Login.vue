@@ -1,10 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 import Logo from '../assets/logo.svg'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const username = ref(null)
 const password = ref(null)
-const onSubmit = () => {}
+const onSubmit = () => {
+  router.push({
+    name: 'NavigatorView'
+  })
+}
 </script>
 
 <template>

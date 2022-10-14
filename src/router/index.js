@@ -19,7 +19,22 @@ const router = createRouter({
         {
           path: '',
           name: 'Home',
-          component: HomeView
+          component: HomeView,
+          meta: {
+            title: '首页1'
+          }
+        }
+      ]
+    },
+    {
+      path: '/navigator',
+      component: Layout,
+      children: [
+        {
+          path: '',
+          name: 'NavigatorView',
+          component: () => import('../views/NavigatorView.vue'),
+         
         }
       ]
     },

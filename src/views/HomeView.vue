@@ -1,4 +1,5 @@
 <script setup>
+import PageWithNavbar  from '../components/PageWithNavbar.vue'
 import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
@@ -18,6 +19,8 @@ import TheWelcome from '../components/TheWelcome.vue'
       <van-button type="danger" @click="handleClick">主要按钮</van-button>
     </div> -->
 
-    <TheWelcome />
+    <PageWithNavbar>
+      <TheWelcome />
+    </PageWithNavbar>
   </main>
 </template>
