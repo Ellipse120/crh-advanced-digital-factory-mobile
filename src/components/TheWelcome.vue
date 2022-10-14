@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <van-button @click="toggle">Toggle</van-button>
+  <van-button type="primary" @click="toggle">Toggle</van-button>
   <van-button type="success" @click="refresh">刷新</van-button>
   <b v-if="isLoading" class="ml-2">{{ ((progress || 0) * 100).toFixed(0) }}%</b>
 
