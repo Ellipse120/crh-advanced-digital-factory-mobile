@@ -9,8 +9,36 @@ export const useUserInfoStore = defineStore('userInfo', () => {
     roles: ['admin'],
     department: '测试部门'
   })
+  const token = ref(null)
+
+  const setToken = (data) => {
+    token.value = data
+  }
+
+  const clearToken = () => { 
+    token.value = null
+  }
+
+  const setUserInfo = (data) => {
+    userInfo.value = data
+  }
+
+  const clearUserInfo = () => {
+    userInfo.value = {
+      userId: null,
+      username: null,
+      password: null,
+      roles: [],
+      department: null
+    }
+  }
 
   return {
-    userInfo
+    token,
+    userInfo,
+    setToken,
+    clearToken,
+    setUserInfo,
+    clearUserInfo
   }
 })

@@ -1,18 +1,21 @@
 import axios from 'axios'
 import { useAxios } from '@vueuse/integrations/useAxios'
 import { Toast } from 'vant'
+import { useUserInfoStore } from '../stores/user'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: import.meta.env.VITE_API_SERVER_URL
 })
 
 instance.interceptors.request.use(
   (config) => {
-    config.headers['Authorization'] = 'test-token'
+    const store = useUserInfoStore()
+    config.headers['Authorization'] = store.token
+    
     return config
   },
   (error) => {
-    return Promise.reject(error) 
+    return Promise.reject(error)
 })
 
 instance.interceptors.response.use(
@@ -33,4 +36,4 @@ const useRequest = (...args) => {
 export {
   instance,
   useRequest
-} 
+}

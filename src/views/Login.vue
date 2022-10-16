@@ -2,12 +2,21 @@
 import { ref } from 'vue'
 import Logo from '../assets/logo.svg'
 import { useRouter } from 'vue-router'
+import { useUserInfoStore } from '../stores/user'
+import { useRequest } from '../composables/useRequest'
 
 const router = useRouter()
 
 const username = ref(null)
 const password = ref(null)
-const onSubmit = () => {
+const onSubmit = async () => {
+  const { data } = await useRequest('login')
+  const { setToken, setUserInfo } = useUserInfoStore()
+  setToken(data.value?.token)
+  
+  const { data: userInfo } = await useRequest('user-info')
+  setUserInfo(userInfo.value)
+
   router.push({
     name: 'NavigatorView'
   })

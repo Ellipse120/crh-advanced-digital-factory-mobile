@@ -1,4 +1,17 @@
-import { Button, Cell, CellGroup, Col, ConfigProvider, Field, Form, List, NavBar, Row, Toast } from 'vant'
+import {
+    Button,
+    Cell,
+    CellGroup,
+    Col,
+    ConfigProvider,
+    Field,
+    Form,
+    List,
+    NavBar,
+    Row,
+    Space,
+    Toast
+  } from 'vant'
 import 'vant/lib/index.css'
 
 export default {
@@ -13,6 +26,7 @@ export default {
     app.use(List)
     app.use(NavBar)
     app.use(Row)
+    app.use(Space)
     app.use(Toast)
   }
 }
