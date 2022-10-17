@@ -14,9 +14,6 @@ const onClickLeft = () => {
 const onClickRight = () => {
 
 }
-
-const store = useUserInfoStore()
-console.log(store.userInfo)
 </script>
 
 <template>

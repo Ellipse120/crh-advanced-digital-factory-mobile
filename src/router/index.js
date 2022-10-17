@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useNProgress } from '@vueuse/integrations/useNProgress'
+import { useCookies } from '@vueuse/integrations/useCookies'
+
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/NotFound.vue'
 import Login from '../views/Login.vue'
 import Layout from '../layouts/vant.vue'
 import { useUserInfoStore } from '../stores/user'
+import { useRequest } from '../composables/useRequest'
 
 const routes = [
   {
@@ -59,15 +63,36 @@ const router = createRouter({
   routes: routes
 })
 
-router.beforeEach((to) => {
+const { start, done } =  useNProgress()
+const cookies = useCookies()
+
+router.beforeEach(async (to) => {
+  const { userInfo, setUserInfo } = useUserInfoStore()
+
+  start()
   // ✅ This will work because the router starts its navigation after
   // the router is installed and pinia will be installed too
-  const { token, userInfo } = useUserInfoStore()
+ 
+  const token = cookies.get('token')
 
-  // todo ???
-  if (!userInfo?.username) return '/login'
-  else return true
+  if (token) {
+    if (to.name === 'Login') {
+      done()
+      return '/'
+    }
+
+    if (!userInfo.userId) {
+      const { data: userInfo } = await useRequest('user-info')
+      setUserInfo(userInfo.value)
+    }
+  } else {
+    if (to.name !== 'Login' && !userInfo?.username) {
+      done()
+      return '/login'
+    }
+  }
+  
+  done()
 })
-
 
 export default router

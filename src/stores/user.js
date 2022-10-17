@@ -1,21 +1,26 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useCookies } from '@vueuse/integrations/useCookies'
 
 export const useUserInfoStore = defineStore('userInfo', () => {
+  const cookies = useCookies()
+
   const userInfo = ref({
-    userId: '1',
-    username: 'test',
-    password: 'test',
-    roles: ['admin'],
-    department: '测试部门'
+    userId: null,
+    username: null,
+    password: null,
+    roles: [],
+    department: null
   })
   const token = ref(null)
 
   const setToken = (data) => {
+    cookies.set('token', data)
     token.value = data
   }
 
   const clearToken = () => { 
+    cookies.remove('token')
     token.value = null
   }
 
@@ -34,7 +39,6 @@ export const useUserInfoStore = defineStore('userInfo', () => {
   }
 
   return {
-    token,
     userInfo,
     setToken,
     clearToken,
