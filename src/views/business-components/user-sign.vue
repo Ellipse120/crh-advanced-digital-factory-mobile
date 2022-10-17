@@ -1,15 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-import { useNow, useDateFormat } from '@vueuse/core'
+import { useDateFormat } from '@vueuse/core'
 import { useRequest } from '@/composables/useRequest'
+import { formatTime } from '@/helpers'
 
-const formatted = useDateFormat(useNow(), 'YYYY-MM-DD')
+const formatted = useDateFormat(new Date(), 'YYYY-MM-DD')
 
 const users = ref([])
 const { data, loading } = await useRequest('users')
 users.value = data.value?.users
 
-const formatter = (v) => useDateFormat(v, 'HH:mm:ss')?.value
+const formatter = (v) => formatTime(v, 'HH:mm:ss')
 </script>
 
 <template>
