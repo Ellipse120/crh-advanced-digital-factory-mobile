@@ -9,13 +9,19 @@ const router = useRouter()
 
 const username = ref(null)
 const password = ref(null)
+const title = ref(import.meta.env.VITE_WEBSITE_TITLE)
+
 const onSubmit = async () => {
-  const { data } = await useRequest('login')
-  const { setToken, setUserInfo } = useUserInfoStore()
+  const { data } = await useRequest('login', { 
+    method: 'post',
+    data: {
+      username: username.value,
+      password: password.value
+    }
+  })
+
+  const { setToken } = useUserInfoStore()
   setToken(data.value?.token)
-  
-  const { data: userInfo } = await useRequest('user-info')
-  setUserInfo(userInfo.value)
 
   router.push({
     name: 'NavigatorView'
@@ -24,15 +30,18 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-around">
-    <van-form @submit="onSubmit" class="h-100">
+  <div>
+    <van-form @submit="onSubmit">
       <van-cell-group inset>
-        <div>
+        <div class="mb-8">
           <img :src="Logo" alt="logo" class="w-full h-20 text-center">
+          <div class="text-xl text-center mt-4">{{title}}</div>
         </div>
+
         <van-field
           v-model="username"
           name="用户名"
+          size="large"
           label="用户名"
           placeholder="用户名"
           :rules="[{ required: true, message: '请填写用户名' }]"
@@ -41,12 +50,14 @@ const onSubmit = async () => {
           v-model="password"
           type="password"
           name="密码"
+          size="large"
           label="密码"
           placeholder="密码"
           :rules="[{ required: true, message: '请填写密码' }]"
         />
       </van-cell-group>
-      <div style="margin: 16px;">
+
+      <div class="m-4">
         <van-button round block type="primary" native-type="submit">
           登录
         </van-button>

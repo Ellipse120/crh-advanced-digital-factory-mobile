@@ -14,7 +14,7 @@
       "responses": [
         {
           "uuid": "d4b15bde-6663-49b5-b1fb-0f57fe41641e",
-          "body": "{\n  \"Templating example\": \"For more information about templating, click the blue 'i' above this editor\",\n  \"users\": [\n    {{# repeat (queryParam 'total' '10') }}\n      {\n        \"userId\": \"{{ faker 'random.number' min=10000 max=100000 }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"friends\": [\n          {{# repeat (faker 'random.number' 5) }}\n            {\n              \"id\": \"{{ faker 'random.uuid' }}\"\n            }\n          {{/ repeat }}\n        ]\n      },\n    {{/ repeat }}\n  ],\n  \"total\": \"{{queryParam 'total' '10'}}\"\n}",
+          "body": "{\n  \"Templating example\": \"For more information about templating, click the blue 'i' above this editor\",\n  \"users\": [\n    {{# repeat (queryParam 'total' '10') }}\n      {\n        \"userId\": \"{{ faker 'random.number' min=10000 max=100000 }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"date\": \"{{ faker 'date.past' }}\",\n        \"jobNumber\": \"{{ faker 'random.numeric' 4 }}\",\n        \"friends\": [\n          {{# repeat (faker 'random.number' 5) }}\n            {\n              \"id\": \"{{ faker 'random.uuid' }}\"\n            }\n          {{/ repeat }}\n        ]\n      },\n    {{/ repeat }}\n  ],\n  \"total\": \"{{queryParam 'total' '10'}}\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Creates 10 random users, or the amount specified in the 'total' query param",
@@ -44,7 +44,7 @@
         }
       ],
       "enabled": true,
-      "responseMode": "RANDOM"
+      "responseMode": null
     },
     {
       "uuid": "f9361a18-f5ba-4b1e-8909-399276110126",
@@ -210,7 +210,7 @@
     {
       "uuid": "1ea29c79-f8d6-4dfe-a448-948ddf5540c7",
       "documentation": "登录",
-      "method": "get",
+      "method": "post",
       "endpoint": "login",
       "responses": [
         {
@@ -270,7 +270,7 @@
         }
       ],
       "enabled": true,
-      "responseMode": "RANDOM"
+      "responseMode": null
     }
   ],
   "proxyMode": false,

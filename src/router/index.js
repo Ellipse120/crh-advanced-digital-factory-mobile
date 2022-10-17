@@ -44,13 +44,58 @@ const routes = [
     ]
   },
   {
-    path: '/about',
+    path: '/kaigongzhunbei',
     component: Layout,
     children: [
       {
         path: '',
-        name: 'About',
-        component:  () => import('../views/AboutView.vue')
+        name: 'Kaigongzhunbei',
+        component: () => import('../views/Kaigongzhunbei.vue'),
+        meta: {
+          title: '开工准备'
+        }
+      }
+    ]
+  },
+  {
+    path: '/shengchanguocheng',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'Shengchanguocheng',
+        component:  () => import('../views/Shengchanguocheng.vue'),
+        meta: {
+          title: '生产过程'
+        }
+      }
+    ]
+  },
+  {
+    path: '/wangongqingdian',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'Wangongqingdian',
+        component:  () => import('../views/Wangongqingdian.vue'),
+        meta: {
+          title: '完工清点'
+        }
+      }
+    ]
+  },
+  {
+    path: '/me',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'Me',
+        component:  () => import('../views/Me.vue'),
+        meta: {
+          title: '我的'
+        }
       }
     ]
   },
@@ -81,13 +126,13 @@ router.beforeEach(async (to) => {
       return '/'
     }
 
-    if (!userInfo.userId) {
-      const { data: userInfo } = await useRequest('user-info')
+    if (!userInfo.value?.username) {
+      const { data } = await useRequest('user-info')
 
-      setUserInfo(userInfo.value)
+      setUserInfo(data)
     }
   } else {
-    if (to.name !== 'Login' && !userInfo?.username) {
+    if (to.name !== 'Login' && !userInfo.value?.username) {
       done()
       return '/login'
     }
