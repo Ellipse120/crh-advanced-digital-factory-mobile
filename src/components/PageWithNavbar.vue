@@ -5,14 +5,20 @@ import { useUserInfoStore } from '../stores/user'
 
 const router = useRouter()
 const route = useRoute()
+const { clearToken, clearUserInfo } = useUserInfoStore()
 
 const title = computed(() => route?.meta?.title)
 
-const onClickLeft = () => {
+const back = () => {
   router.back()
 }
-const onClickRight = () => {
 
+const logout = () => {
+  clearToken()
+  clearUserInfo()
+  router.push({
+    name: 'Login'
+  })
 }
 </script>
 
@@ -21,10 +27,10 @@ const onClickRight = () => {
     <van-nav-bar
       :title="title"
       left-text="返回"
-      right-text="按钮"
+      right-text="登出"
       left-arrow
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
+      @click-left="back"
+      @click-right="logout"
     />
 
     <slot />
