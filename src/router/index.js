@@ -82,9 +82,8 @@ router.beforeEach(async (to) => {
     }
 
     if (!userInfo.userId) {
-      const { data: userInfo } = await useRequest('user-info').finally(() => { 
-        done()
-      })
+      const { data: userInfo } = await useRequest('user-info')
+
       setUserInfo(userInfo.value)
     }
   } else {

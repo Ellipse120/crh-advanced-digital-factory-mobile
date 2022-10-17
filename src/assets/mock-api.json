@@ -252,10 +252,25 @@
           "disableTemplating": false,
           "fallbackTo404": false,
           "default": true
+        },
+        {
+          "uuid": "7972c133-3b6d-4324-a48e-1c1507aff015",
+          "body": "{\n  \"error\": \"some error\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
         }
       ],
       "enabled": true,
-      "responseMode": null
+      "responseMode": "RANDOM"
     }
   ],
   "proxyMode": false,
