@@ -18,7 +18,9 @@ import {
     Tabbar,
     TabbarItem,
     Toast,
-    TreeSelect
+    TreeSelect,
+    Icon,
+    DatetimePicker
   } from 'vant'
 import 'vant/lib/index.css'
 
@@ -44,5 +46,7 @@ export default {
     app.use(TabbarItem)
     app.use(Toast)
     app.use(TreeSelect)
+    app.use(Icon)
+    app.use(DatetimePicker)
   }
 }

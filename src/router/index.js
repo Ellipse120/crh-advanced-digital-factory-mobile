@@ -113,6 +113,20 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/plan-detail',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'PlanDetail',
+        component:  () => import('../views/PlanDetail.vue'),
+        meta: {
+          title: '计划详情'
+        }
+      }
+    ]
+  },
 
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
