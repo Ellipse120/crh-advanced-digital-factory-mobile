@@ -99,6 +99,20 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/sign-in-out',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'SignInOut',
+        component:  () => import('../views/SignInOut.vue'),
+        meta: {
+          title: '打卡'
+        }
+      }
+    ]
+  },
 
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]

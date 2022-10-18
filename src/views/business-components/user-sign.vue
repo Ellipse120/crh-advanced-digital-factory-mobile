@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useDateFormat } from '@vueuse/core'
 import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
+import router from '../../router';
 
 const formatted = useDateFormat(new Date(), 'YYYY-MM-DD')
 
@@ -11,6 +12,12 @@ const { data, loading } = await useRequest('users')
 users.value = data.value?.users
 
 const formatter = (v) => formatTime(v, 'HH:mm:ss')
+
+const signIn = () => {
+  router.push({
+    name: 'SignInOut'
+  })
+}
 </script>
 
 <template>
@@ -50,7 +57,7 @@ const formatter = (v) => formatTime(v, 'HH:mm:ss')
     </div>
 
     <!-- todo 签到功能 -->
-    <div class="fixed bottom-28 right-2 h-12 w-12 rounded-1/2 shadowxl text-center bg-blue-500 text-white flex items-center justify-center">
+    <div class="fixed bottom-28 right-2 h-12 w-12 rounded-1/2 shadowxl text-center bg-blue-500 text-white flex items-center justify-center" @click="signIn">
       签到
     </div>
   </div>
