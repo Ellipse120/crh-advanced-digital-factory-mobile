@@ -12,16 +12,18 @@ defineProps({
 })
 
 const timeValue = ref('')
-const currentDate = ref('')
+const currentDate = ref(null)
 const showDate = ref(false)
 
 const showDateFn = () => {
   showDate.value = true
 }
+
 const confirmFn = () => {
   timeValue.value = formatTime(currentDate.value, 'yyyy-MM-dd')
   showDate.value = false
 }
+
 const cancelFn = () => {
   showDate.value = false
 }
@@ -33,6 +35,7 @@ const cancelFn = () => {
   <van-popup v-model:show="showDate" position="bottom" :style="{ height: '40%' }" >
     <van-datetime-picker
       v-model="currentDate"
+      v-bind="$attrs"
       type="year-month"
       :title="title"
       @confirm="confirmFn()" 

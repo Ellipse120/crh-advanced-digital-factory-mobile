@@ -81,9 +81,10 @@ const PlanDetail = () => {
         </div>
       </div>
     </div>
+{{query}}
     <van-popup class="pt-6" v-model:show="show" position="top" :style="{ height: '100%' }" >
-      <DateTimePickerWrapper title="开始日期" />
-      <DateTimePickerWrapper title="结束日期" />
+      <DateTimePickerWrapper title="开始日期" v-model="query.startDate" />
+      <DateTimePickerWrapper title="结束日期" v-model="query.endDate" />
       <div class="absolute flex bottom-0 left-0 w-full">
         <van-button class="flex-1" @click="resetQuery">重置</van-button>
         <van-button class="flex-1" @click="doConfirm" type="primary">确定</van-button>
