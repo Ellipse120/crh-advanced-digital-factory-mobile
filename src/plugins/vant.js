@@ -13,6 +13,8 @@ import {
     NavBar,
     Popup,
     Row,
+    Sidebar,
+    SidebarItem,
     Skeleton,
     Space,
     Tabbar,
@@ -38,6 +40,8 @@ export default {
     app.use(NavBar)
     app.use(Popup)
     app.use(Row)
+    app.use(Sidebar)
+    app.use(SidebarItem)
     app.use(Skeleton)
     app.use(Space)
     app.use(Tabbar)

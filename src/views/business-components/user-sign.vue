@@ -13,7 +13,7 @@ users.value = data.value?.users
 
 const formatter = (v) => formatTime(v, 'HH:mm:ss')
 
-const signIn = () => {
+const doSignIn = () => {
   router.push({
     name: 'SignInOut'
   })
@@ -37,7 +37,7 @@ const signIn = () => {
 
     <van-divider />
     
-    <div class="max-h-80 overflow-auto">
+    <div class="max-h-66 overflow-auto">
       <div v-for="item in users" :key="item.userId">
         <van-skeleton title avatar :row="2" :loading="loading">
           <div class="grid grid-cols-2 grid-rows-2 my-2 bg-gray-100 gap-2 p-1">
@@ -56,8 +56,7 @@ const signIn = () => {
       </div>
     </div>
 
-    <!-- todo 签到功能 -->
-    <div class="fixed bottom-28 right-2 h-12 w-12 rounded-1/2 shadowxl text-center bg-blue-500 text-white flex items-center justify-center" @click="signIn">
+    <div class="fixed bottom-28 right-2 h-16 w-16 text-xl font-bold rounded-1/2 shadowxl text-center bg-blue-500 text-white flex items-center justify-center" @click="doSignIn">
       签到
     </div>
   </div>

@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import PageSkeleton from '../components/PageSkeleton.vue'
 import UserSign from './business-components/user-sign.vue'
 import ProductionPlan from './business-components/production-plan.vue'
@@ -7,6 +8,8 @@ import EquipmentInspection from './business-components/equipment-inspection.vue'
 import ToolsInspection from './business-components/tools-inspection.vue'
 import MaterialInspection from './business-components/material-inspection.vue'
 import EnvironmentInspection from './business-components/environment-inspection.vue'
+
+const route = useRoute()
 
 const activeIndex = ref(0)
 const items = ref([
@@ -30,22 +33,26 @@ const activeComp = computed(() => {
 
   return compMapper[activeIndex.value]
 })
+
+watch(
+  () => route.query.active,
+  (v) => {
+    activeIndex.value = v
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
   <PageSkeleton>
-    <div>
-      <van-tree-select
-        v-model:main-active-index="activeIndex"
-        height="85vh"
-        :items="items"
-      >
-        <template #content>
-          <div class="p-1">
-            <component :is="activeComp" />
-          </div>
-        </template>
-      </van-tree-select>
+    <div class="flex">
+      <van-sidebar v-model="activeIndex">
+        <van-sidebar-item v-for="item in items" :title="item.text" :key="item.text" />
+      </van-sidebar>
+
+      <div class="flex-1">
+        <component :is="activeComp" />
+      </div>
     </div>
   </PageSkeleton>
 </template>

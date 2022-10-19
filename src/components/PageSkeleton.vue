@@ -1,8 +1,5 @@
 <script setup>
-import { ref } from 'vue'
 import PageWithNavbar  from '../components/PageWithNavbar.vue'
-
-const active = ref(0)
 </script>
 
 <template>

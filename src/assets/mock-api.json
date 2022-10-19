@@ -240,7 +240,7 @@
       "responses": [
         {
           "uuid": "792cd8b2-b5f5-4679-a4cf-ac913f3724c5",
-          "body": "{\n  \"userId\": \"1\",\n  \"username\": \"test\",\n  \"password\": \"test\",\n  \"roles\": [\"admin\"],\n  \"department\": \"测试部门\"\n}",
+          "body": "{\n  \"userId\": \"1\",\n  \"username\": \"路赛\",\n  \"password\": \"test\",\n  \"roles\": [\"admin\"],\n  \"jobNumber\": \"1234\",\n  \"job\": \"高级技工\",\n  \"department\": \"测试部门\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "",
