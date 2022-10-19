@@ -41,16 +41,16 @@ const list = ref([
   }
 ])
 
-const showPop = () => {
-  show.value = true
-}
-
 const resetQuery = () => {
   closePop()
 }
 
 const doConfirm = () => {
   closePop()
+}
+
+const showPop = () => {
+  show.value = true
 }
 
 const closePop = () => {
