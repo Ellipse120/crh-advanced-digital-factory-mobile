@@ -6,6 +6,8 @@ import {
     CellGroup,
     Col,
     ConfigProvider,
+    RadioGroup,
+    Radio,
     Divider,
     Field,
     Form,
@@ -48,5 +50,7 @@ export default {
     app.use(TreeSelect)
     app.use(Icon)
     app.use(DatetimePicker)
+    app.use(RadioGroup)
+    app.use(Radio)
   }
 }
