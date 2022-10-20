@@ -50,7 +50,7 @@ watch(
         <van-sidebar-item v-for="item in items" :title="item.text" :key="item.text" />
       </van-sidebar>
 
-      <div class="flex-1">
+      <div class="flex-1 overflow-auto">
         <component :is="activeComp" />
       </div>
     </div>
