@@ -8,6 +8,7 @@ import router from '../../router';
 import DateTimePickerWrapper from '../../components/DateTimePickerWrapper.vue'
 
 const show = ref(false)
+const date = formatTime(new Date(), 'yyyy-MM-dd')
 const query = ref({
   startDate: null,
   endDate: null
@@ -66,12 +67,24 @@ const PlanDetail = () => {
 </script>
 
 <template>
-  <div>
-    <div @click="showPop" class="leading-6 text-right text-12px text-blue-500 pr-1">
+  <div class="px-2">
+    <!-- <div @click="showPop" class="leading-6 text-right text-12px text-blue-500 pr-1">
       <van-icon name="filter-o" /><span>筛选</span>
     </div>
+    <van-popup class="pt-6" v-model:show="show" position="right" :style="{ height: '100%', width:'80%' }" >
+      <DateTimePickerWrapper title="开始日期" v-model="query.startDate" />
+      <DateTimePickerWrapper title="结束日期" v-model="query.endDate" />
+      <div class="absolute flex bottom-0 left-0 w-full">
+        <van-button class="flex-1" @click="resetQuery">重置</van-button>
+        <van-button class="flex-1" @click="doConfirm" type="primary">确定</van-button>
+      </div>
+    </van-popup>-->
+    <div class="flex justify-between items-center leading-8">
+      <span>{{date}}</span>
+      <van-button size="mini" plain type="primary">更多</van-button>
+    </div>
     <div class="card-list">
-      <div @click="PlanDetail" class="card-item p-2 text-gray-400 text-14px m-2 shadow-sm shadow-gray-200 rounded-md" v-for="i in list" :key="i.id">
+      <div @click="PlanDetail" class="card-item p-2 text-gray-400 text-14px my-2 shadow-sm shadow-gray-200 rounded-md" v-for="i in list" :key="i.id">
         <div class="mb-4">{{i.trainId}}</div>
         <div class="flex text-white">
           <div class="flex-1 text-center mr-2 h-5 leading-5 bg-green-300">1-1</div>
@@ -81,14 +94,5 @@ const PlanDetail = () => {
         </div>
       </div>
     </div>
-{{query}}
-    <van-popup class="pt-6" v-model:show="show" position="top" :style="{ height: '100%' }" >
-      <DateTimePickerWrapper title="开始日期" v-model="query.startDate" />
-      <DateTimePickerWrapper title="结束日期" v-model="query.endDate" />
-      <div class="absolute flex bottom-0 left-0 w-full">
-        <van-button class="flex-1" @click="resetQuery">重置</van-button>
-        <van-button class="flex-1" @click="doConfirm" type="primary">确定</van-button>
-      </div>
-    </van-popup>
   </div>
 </template>

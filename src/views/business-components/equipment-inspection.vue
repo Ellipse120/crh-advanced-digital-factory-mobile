@@ -5,6 +5,7 @@ import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
 import DateTimePickerWrapper from '../../components/DateTimePickerWrapper.vue'
 const show = ref(false)
+const date = formatTime(new Date(), 'yyyy-MM-dd')
 
 const list = ref([
   {
@@ -51,19 +52,23 @@ const closePop = () => {
 </script>
 
 <template>
-  <div>
-    <div @click="showPop" class="leading-6 text-right text-12px text-blue-500 pr-1">
+  <div class="px-2">
+    <!-- <div @click="showPop" class="leading-6 text-right text-12px text-blue-500 pr-1">
       <van-icon name="filter-o" /><span>筛选</span>
     </div>
-    <van-popup class="pt-6" v-model:show="show" position="top" :style="{ height: '100%' }" >
+    <van-popup class="pt-6" v-model:show="show" position="right" :style="{ height: '100%', width:'80%' }" >
       <DateTimePickerWrapper title="开始日期" />
       <DateTimePickerWrapper title="结束日期" />
       <div class="absolute flex bottom-0 left-0 w-full">
         <van-button class="flex-1" @click="resetQuery">重置</van-button>
         <van-button class="flex-1" @click="doConfirm" type="primary">确定</van-button>
       </div>
-    </van-popup>
-    <div class="flex mb-4">
+    </van-popup> -->
+    <div class="flex justify-between items-center leading-8">
+      <span>{{date}}</span>
+      <van-button size="mini" plain type="primary">更多</van-button>
+    </div>
+    <div class="flex py-4">
       <div 
         class="w-6 h-6 bg-gray-300 leading-6 text-center mr-2 rounded-full" 
         :class="{'bg-green-500': i.checked === true, 'bg-red-500': i.checked === false}"
