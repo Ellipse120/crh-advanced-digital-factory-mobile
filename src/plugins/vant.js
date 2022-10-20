@@ -24,7 +24,9 @@ import {
     Toast,
     TreeSelect,
     Icon,
-    DatetimePicker
+    DatetimePicker,
+    Tab, 
+    Tabs
   } from 'vant'
 import 'vant/lib/index.css'
 
@@ -56,5 +58,7 @@ export default {
     app.use(DatetimePicker)
     app.use(RadioGroup)
     app.use(Radio)
+    app.use(Tab)
+    app.use(Tabs)
   }
 }

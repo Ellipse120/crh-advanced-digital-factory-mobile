@@ -1,0 +1,63 @@
+<script setup>
+import { ref } from 'vue'
+import { formatTime } from '@/helpers'
+
+const list = ref([
+  {
+    key: 1,
+    content: '尼龙绳无拉毛',
+    checked: null
+
+  },
+  {
+    key: 2,
+    content: '编号挂牌无断裂、丢失',
+    checked: null
+
+  },
+  {
+    key: 3,
+    content: '编号挂牌无断裂、丢失',
+    checked: null
+
+  },
+  {
+    key: 4,
+    content: '尼龙绳无拉毛',
+    checked: null
+
+  },
+])
+</script>
+
+<template>
+  <div class="px-2">
+    <div class="flex py-4">
+      <div 
+        class="w-6 h-6 bg-gray-300 leading-6 text-center mr-2 rounded-full" 
+        :class="{'bg-green-500': i.checked === true, 'bg-red-500': i.checked === false}"
+        v-for="i in list" 
+        :key="i.key"
+      >{{i.key}}</div>
+    </div>
+    <div class="mb-2">
+      <p class="leading-8">吊勾名称：吊勾1</p>
+      <p class="leading-8">吊勾编号：S02555-01-2206</p>
+    </div>
+    <div class="border-1 border-b-0 text-12px">
+      <div v-for="(i,idx) in list" :key="i.id"  class="item p-2 border-b-1">
+        <p class="leading-30px">{{ idx+1}}.{{i.content}}</p>
+        <van-radio-group icon-size="14px" v-model="i.checked" direction="horizontal">
+          <van-radio :name="true">是</van-radio>
+          <van-radio :name="false">否</van-radio>
+        </van-radio-group>
+      </div>
+    </div>
+    <div class="w-full my-3">
+      <van-button class="w-full" type="primary">确定</van-button>
+    </div>
+    <div class="w-full">
+      <van-button class="w-full">异常</van-button>
+    </div>
+  </div>
+</template>
