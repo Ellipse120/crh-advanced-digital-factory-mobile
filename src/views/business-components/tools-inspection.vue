@@ -18,7 +18,7 @@ const activeComp = computed(() => {
 
 <template>
   <div class="py-2 px-2 w-full">
-    <van-tabs v-model:active="activeIndex" color="#1989Fa" type="card">
+    <van-tabs class="mb-3" v-model:active="activeIndex" color="#1989Fa" type="card">
       <van-tab title="吊索具" />
       <van-tab title="工具" />
     </van-tabs>
