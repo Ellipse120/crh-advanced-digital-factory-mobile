@@ -18,16 +18,8 @@ users.value = data.value?.users
 
 const formatter = (v) => formatTime(v, 'HH:mm:ss')
 
-const eventsFn =  (date) => {
-  if (date === '2019/02/01' ||
-    date === '2019/02/05' ||
-    date === '2019/02/06' ||
-    date === '2019/02/09' ||
-    date === '2019/02/23') {
-    return true
-  }
-
-  return false
+const eventsFn = (date) => {
+  return events.value.includes(date)
 }
 
 const doSignIn = () => {
@@ -47,6 +39,16 @@ const doSignIn = () => {
 
     <q-date
       v-if="value"
+      v-motion
+      :initial="{
+        opacity: 0,
+        y: 100,
+      }"
+      :enter="{
+        opacity: 1,
+        y: 0,
+      }"
+      class="shadow-1"
       transition-show="jump-down"
       transition-hide="jump-up"
       v-model="date"
@@ -54,13 +56,6 @@ const doSignIn = () => {
       :event-color="(date) => date[9] % 2 === 0 ? 'teal' : 'orange'"
       minimal
     />
-    <!-- <van-calendar
-      v-if="value"
-      title="日历"
-      :poppable="false"
-      :show-confirm="false"
-      :style="{ height: '400px' }"
-    /> -->
 
     <van-divider />
     
