@@ -47,7 +47,7 @@ const activeComp = computed(() => {
 watch(
   () => route.query.active,
   (v) => {
-    activeIndex.value = v
+    activeIndex.value = v || 0
   },
   { immediate: true }
 )

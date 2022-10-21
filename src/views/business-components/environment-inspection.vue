@@ -29,7 +29,9 @@ const onReportError = () => {
 <template>
   <div>
     <van-form>
-      <div class="m-2">1、作业工位温、湿度要求符合作业标准</div>
+      <div class="m-2">1、作业工位温、湿度要求符合作业标准
+        <van-tag size="large" type="success">合格</van-tag>
+      </div>
 
       <van-field
         v-model="t1"
@@ -48,10 +50,6 @@ const onReportError = () => {
         placeholder="标准温湿度"
         :rules="[{ required: true, message: '请填写' }]"
       />
-
-      <div class="flex items-center justify-center my-2">
-        <van-tag size="large" type="success">合格</van-tag>
-      </div>
 
       <van-divider />
 
