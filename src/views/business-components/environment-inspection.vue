@@ -21,7 +21,10 @@ const onSubmit = () => {
 
 const onReportError = () => {
   router.push({
-    name: 'ReportError'
+    name: 'ReportError',
+    query: {
+      active: 5
+    }
   })
 }
 </script>
@@ -33,31 +36,31 @@ const onReportError = () => {
         <van-tag size="large" type="success">合格</van-tag>
       </div>
 
-      <van-field
-        v-model="t1"
-        type="number"
-        name="当前温湿度"
-        label="当前温湿度"
-        placeholder="当前温湿度"
-        :rules="[{ required: true, message: '请填写' }]"
-      />
+      <van-cell-group>
+        <van-field
+          v-model="t1"
+          type="number"
+          name="当前温湿度"
+          label="当前温湿度"
+          placeholder="当前温湿度"
+          :rules="[{ required: true, message: '请填写' }]"
+        />
 
-      <van-field
-        v-model="t2"
-        type="number"
-        name="标准温湿度"
-        label="标准温湿度"
-        placeholder="标准温湿度"
-        :rules="[{ required: true, message: '请填写' }]"
-      />
-
-      <van-divider />
+        <van-field
+          v-model="t2"
+          type="number"
+          name="标准温湿度"
+          label="标准温湿度"
+          placeholder="标准温湿度"
+          :rules="[{ required: true, message: '请填写' }]"
+        />
+      </van-cell-group>
 
       <div class="m-2">2、作业工位环境整洁、无杂物</div>
 
       <van-radio-group v-model="t3" direction="horizontal">
-        <van-radio name="1">否</van-radio>
-        <van-radio name="2">是</van-radio>
+        <van-radio name="0">否</van-radio>
+        <van-radio name="1">是</van-radio>
       </van-radio-group>
 
       <van-divider />
@@ -65,8 +68,8 @@ const onReportError = () => {
       <div class="m-2">3、作业人员安全媚、工作服及绝缘鞋等防护用品穿戴到位</div>
 
       <van-radio-group v-model="t4" direction="horizontal">
-        <van-radio name="1">否</van-radio>
-        <van-radio name="2">是</van-radio>
+        <van-radio name="0">否</van-radio>
+        <van-radio name="1">是</van-radio>
       </van-radio-group>
 
       <van-divider />
@@ -74,8 +77,8 @@ const onReportError = () => {
       <div class="m-2">4、作业工位设备、物料及工具等放置规范</div>
 
       <van-radio-group v-model="t5" direction="horizontal">
-        <van-radio name="1">否</van-radio>
-        <van-radio name="2">是</van-radio>
+        <van-radio name="0">否</van-radio>
+        <van-radio name="1">是</van-radio>
       </van-radio-group>
 
       <van-divider />

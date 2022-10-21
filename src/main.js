@@ -5,14 +5,15 @@ import App from './App.vue'
 import router from './router'
 import { MotionPlugin } from '@vueuse/motion'
 
+import 'virtual:windi.css'
+import './assets/main.css'
+
 import Vant from './plugins/vant'
 
 import { Quasar } from 'quasar'
 import quasarLang from 'quasar/lang/zh-CN'
 import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/src/css/index.sass'
-import './assets/main.css'
-import 'virtual:windi.css'
 
 const app = createApp(App)
 

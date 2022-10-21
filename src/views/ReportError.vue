@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { Toast, Dialog } from 'vant'
 import PageWithNavbar  from '../components/PageWithNavbar.vue'
 
+const route = useRoute()
 const router = useRouter()
 const t1 = ref(null)
 
@@ -16,7 +17,7 @@ const onCancel = () => {
       router.push({
         name: 'Kaigongzhunbei',
         query: {
-          active: 5
+          active: route.query.active
         }
       })
     })
@@ -30,7 +31,7 @@ const onSave = () => {
   router.push({
     name: 'Kaigongzhunbei',
     query: {
-      active: 5
+      active: route.query.active
     }
   })
 }
