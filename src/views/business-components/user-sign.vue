@@ -1,12 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { useDateFormat } from '@vueuse/core'
+import { useDateFormat, useToggle } from '@vueuse/core'
 import { useRouter } from 'vue-router'
 import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
 
 const router = useRouter()
+const [value, toggle] = useToggle()
 
+const date = ref('2019/02/01')
+const events = ref(['2019/02/01', '2019/02/05', '2019/02/06', '2019/02/09', '2019/02/23'])
 const formatted = useDateFormat(new Date(), 'YYYY-MM-DD')
 
 const users = ref([])
@@ -14,6 +17,18 @@ const { data, loading } = await useRequest('users')
 users.value = data.value?.users
 
 const formatter = (v) => formatTime(v, 'HH:mm:ss')
+
+const eventsFn =  (date) => {
+  if (date === '2019/02/01' ||
+    date === '2019/02/05' ||
+    date === '2019/02/06' ||
+    date === '2019/02/09' ||
+    date === '2019/02/23') {
+    return true
+  }
+
+  return false
+}
 
 const doSignIn = () => {
   router.push({
@@ -27,19 +42,29 @@ const doSignIn = () => {
     <div class="flex items-center justify-between leading-8">
       <div>{{ formatted }}</div>
 
-      <van-button size="mini" plain type="primary">更多</van-button>
+      <van-button size="mini" plain type="primary" @click="toggle()">更多</van-button>
     </div>
 
-    <van-calendar
+    <q-date
+      v-if="value"
+      transition-show="jump-down"
+      transition-hide="jump-up"
+      v-model="date"
+      :events="eventsFn"
+      :event-color="(date) => date[9] % 2 === 0 ? 'teal' : 'orange'"
+      minimal
+    />
+    <!-- <van-calendar
+      v-if="value"
       title="日历"
       :poppable="false"
       :show-confirm="false"
       :style="{ height: '400px' }"
-    />
+    /> -->
 
     <van-divider />
     
-    <div class="max-h-66 overflow-auto">
+    <div :class="value ? 'max-h-90' : 'max-h-77vh'" class=" overflow-auto">
       <div v-for="item in users" :key="item.userId">
         <van-skeleton title avatar :row="2" :loading="loading">
           <div class="grid grid-cols-2 grid-rows-2 my-2 bg-gray-100 gap-2 p-2">
@@ -58,7 +83,7 @@ const doSignIn = () => {
       </div>
     </div>
 
-    <div class="fixed bottom-28 right-2 h-16 w-16 text-xl font-bold rounded-1/2 shadowxl text-center bg-blue-500 text-white flex items-center justify-center" @click="doSignIn">
+    <div class="fixed bottom-28 right-2 h-16 w-16 text-xl font-bold rounded-1/2 shadow-2xl text-center bg-blue-500 bg-opacity-70 text-white flex items-center justify-center" @click="doSignIn">
       签到
     </div>
   </div>
