@@ -148,7 +148,7 @@ const rows = ref([
 </script>
 
 <template>
-  <div class="w-full max-h-90vh overflow-auto">
+  <div class="w-full max-h-88vh overflow-auto">
     <q-table
       class="!shadow-sm !shadow-gray-200"
       :rows="rows"
