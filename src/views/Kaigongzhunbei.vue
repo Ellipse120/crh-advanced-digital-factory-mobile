@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import PageSkeleton from '../components/PageSkeleton.vue'
 import UserSign from './business-components/user-sign.vue'
 import ProductionPlan from './business-components/production-plan.vue'
@@ -9,6 +9,7 @@ import ToolsInspection from './business-components/tools-inspection.vue'
 import MaterialInspection from './business-components/material-inspection.vue'
 import EnvironmentInspection from './business-components/environment-inspection.vue'
 
+const router = useRouter()
 const route = useRoute()
 
 const activeIndex = ref(0)
@@ -20,6 +21,15 @@ const items = ref([
   { text: '物料点检' },
   { text: '环境检查' },
 ])
+
+const handleChange = (v) => {
+  router.push({
+    name: 'Kaigongzhunbei',
+    query: {
+      active: v
+    }
+  })
+}
 
 const activeComp = computed(() => {
   const compMapper = {
@@ -46,7 +56,7 @@ watch(
 <template>
   <PageSkeleton>
     <div class="flex">
-      <van-sidebar v-model="activeIndex">
+      <van-sidebar v-model="activeIndex" @change="handleChange">
         <van-sidebar-item v-for="item in items" :title="item.text" :key="item.text" />
       </van-sidebar>
 

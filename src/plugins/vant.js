@@ -26,7 +26,9 @@ import {
     Icon,
     DatetimePicker,
     Tab, 
-    Tabs
+    Tabs,
+    Dialog,
+    Tag
   } from 'vant'
 import 'vant/lib/index.css'
 
@@ -39,6 +41,7 @@ export default {
     app.use(CellGroup)
     app.use(Col)
     app.use(ConfigProvider)
+    app.use(Dialog)
     app.use(Divider)
     app.use(Field)
     app.use(Form)
@@ -50,9 +53,10 @@ export default {
     app.use(SidebarItem)
     app.use(Skeleton)
     app.use(Space)
+    app.use(Toast)
     app.use(Tabbar)
     app.use(TabbarItem)
-    app.use(Toast)
+    app.use(Tag)
     app.use(TreeSelect)
     app.use(Icon)
     app.use(DatetimePicker)
