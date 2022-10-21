@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 import { useDateFormat } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
-import router from '../../router';
+
+const router = useRouter()
 
 const formatted = useDateFormat(new Date(), 'YYYY-MM-DD')
 
@@ -22,10 +24,10 @@ const doSignIn = () => {
 
 <template>
   <div class="relative">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between leading-8">
       <div>{{ formatted }}</div>
 
-      <van-button>更多</van-button>
+      <van-button size="mini" plain type="primary">更多</van-button>
     </div>
 
     <van-calendar

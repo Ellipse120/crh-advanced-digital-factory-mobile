@@ -6,7 +6,7 @@ import PageWithNavbar  from '../components/PageWithNavbar.vue'
 <template>
   <PageWithNavbar>
     <div class="flex flex-col items-center justify-around h-140 mt-10">
-      <router-link to="/kaigongzhunbei">
+      <router-link to="/kaigongzhunbei?active=0">
         <div class="text-white bg-blue-500 px-12 py-8 text-4xl">开工准备</div>
       </router-link>
     

@@ -64,7 +64,7 @@ const routes = [
       {
         path: '',
         name: 'Shengchanguocheng',
-        component:  () => import('../views/Shengchanguocheng.vue'),
+        component: () => import('../views/Shengchanguocheng.vue'),
         meta: {
           title: '生产过程'
         }
@@ -78,7 +78,7 @@ const routes = [
       {
         path: '',
         name: 'Wangongqingdian',
-        component:  () => import('../views/Wangongqingdian.vue'),
+        component: () => import('../views/Wangongqingdian.vue'),
         meta: {
           title: '完工清点'
         }
@@ -92,7 +92,7 @@ const routes = [
       {
         path: '',
         name: 'Me',
-        component:  () => import('../views/Me.vue'),
+        component: () => import('../views/Me.vue'),
         meta: {
           title: '我的'
         }
@@ -106,7 +106,7 @@ const routes = [
       {
         path: '',
         name: 'SignInOut',
-        component:  () => import('../views/SignInOut.vue'),
+        component: () => import('../views/SignInOut.vue'),
         meta: {
           title: '打卡'
         }
@@ -120,9 +120,23 @@ const routes = [
       {
         path: '',
         name: 'PlanDetail',
-        component:  () => import('../views/PlanDetail.vue'),
+        component: () => import('../views/PlanDetail.vue'),
         meta: {
           title: '计划详情'
+        }
+      }
+    ]
+  },
+  {
+    path: '/report-error',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ReportError',
+        component: () => import('../views/ReportError.vue'),
+        meta: {
+          title: '异常填报'
         }
       }
     ]
