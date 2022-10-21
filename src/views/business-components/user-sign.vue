@@ -42,7 +42,7 @@ const doSignIn = () => {
     <div class="max-h-66 overflow-auto">
       <div v-for="item in users" :key="item.userId">
         <van-skeleton title avatar :row="2" :loading="loading">
-          <div class="grid grid-cols-2 grid-rows-2 my-2 bg-gray-100 gap-2 p-1">
+          <div class="grid grid-cols-2 grid-rows-2 my-2 bg-gray-100 gap-2 p-2">
             <div class="flex items-center text-lg">
               <div class="bg-blue-500 text-white text-center rounded-full align-middle w-8 mr-2 flex items-center justify-center">{{ item.lastname?.[0] }}</div>
               <div>{{ item.lastname + item.firstname }}</div>

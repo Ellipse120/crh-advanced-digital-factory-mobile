@@ -29,7 +29,7 @@ const onReportError = () => {
 <template>
   <div>
     <van-form>
-      <div class="m-2">1、作业工位温、湿度要求符合作业标准
+      <div class="m-2">1、作业工位温、湿度作业标准
         <van-tag size="large" type="success">合格</van-tag>
       </div>
 

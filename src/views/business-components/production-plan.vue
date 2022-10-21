@@ -67,7 +67,7 @@ const PlanDetail = () => {
 </script>
 
 <template>
-  <div class="px-2">
+  <div>
     <!-- <div @click="showPop" class="leading-6 text-right text-12px text-blue-500 pr-1">
       <van-icon name="filter-o" /><span>筛选</span>
     </div>

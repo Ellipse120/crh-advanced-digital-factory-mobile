@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import ToolsSlingPage from './tools-sling-page.vue'
 import ToolsToolPage from './tools-tool-page.vue'
 
@@ -17,7 +17,7 @@ const activeComp = computed(() => {
 </script>
 
 <template>
-  <div class="py-2 px-2 w-full">
+  <div>
     <van-tabs class="mb-3" v-model:active="activeIndex" color="#1989Fa" type="card">
       <van-tab title="吊索具" />
       <van-tab title="工具" />
