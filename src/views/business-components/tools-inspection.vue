@@ -3,6 +3,12 @@ import { ref, computed } from 'vue'
 import ToolsSlingPage from './tools-sling-page.vue'
 import ToolsToolPage from './tools-tool-page.vue'
 
+defineProps({
+  workStatus: {
+    type: String
+  }
+})
+
 const activeIndex = ref(0)
 
 const activeComp = computed(() => {
@@ -23,7 +29,7 @@ const activeComp = computed(() => {
       <van-tab title="工具" />
     </van-tabs>
 
-    <component :is="activeComp" />
+    <component :is="activeComp"  workStatus="finished" />
 
   </div>
 </template>

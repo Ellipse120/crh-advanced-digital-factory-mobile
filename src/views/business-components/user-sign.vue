@@ -5,6 +5,12 @@ import { useRouter } from 'vue-router'
 import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
 
+defineProps({
+  workStatus: {
+    type: String
+  }
+})
+
 const router = useRouter()
 const [value, toggle] = useToggle()
 
@@ -79,7 +85,7 @@ const doSignIn = () => {
     </div>
 
     <div class="fixed bottom-28 right-2 h-16 w-16 text-xl font-bold rounded-1/2 shadow-2xl text-center bg-blue-500 bg-opacity-70 text-white flex items-center justify-center" @click="doSignIn">
-      签到
+      {{workStatus === 'finished' ? '签退' : '签到'}}
     </div>
   </div>
 </template>

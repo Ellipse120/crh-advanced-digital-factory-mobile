@@ -2,6 +2,12 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+defineProps({
+  workStatus: {
+    type: String
+  }
+})
+
 const router = useRouter()
 const t1 = ref(null)
 const t2 = ref(null)
@@ -58,7 +64,7 @@ const onReportError = () => {
 
       <div class="m-2">2、作业工位环境整洁、无杂物</div>
 
-      <van-radio-group v-model="t3" direction="horizontal">
+      <van-radio-group  v-if="workStatus !== 'finished'" v-model="t3" direction="horizontal">
         <van-radio name="0">否</van-radio>
         <van-radio name="1">是</van-radio>
       </van-radio-group>
@@ -67,7 +73,7 @@ const onReportError = () => {
 
       <div class="m-2">3、作业人员安全媚、工作服及绝缘鞋等防护用品穿戴到位</div>
 
-      <van-radio-group v-model="t4" direction="horizontal">
+      <van-radio-group  v-if="workStatus !== 'finished'" v-model="t4" direction="horizontal">
         <van-radio name="0">否</van-radio>
         <van-radio name="1">是</van-radio>
       </van-radio-group>
@@ -76,7 +82,7 @@ const onReportError = () => {
 
       <div class="m-2">4、作业工位设备、物料及工具等放置规范</div>
 
-      <van-radio-group v-model="t5" direction="horizontal">
+      <van-radio-group  v-if="workStatus !== 'finished'" v-model="t5" direction="horizontal">
         <van-radio name="0">否</van-radio>
         <van-radio name="1">是</van-radio>
       </van-radio-group>
@@ -88,7 +94,7 @@ const onReportError = () => {
           提交
         </van-button>
 
-        <van-button block type="danger" @click="onReportError">
+        <van-button  v-if="workStatus !== 'finished'" block type="danger" @click="onReportError">
           异常
         </van-button>
       </div>
