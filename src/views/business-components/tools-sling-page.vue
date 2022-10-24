@@ -2,6 +2,12 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+defineProps({
+  workStatus: {
+    type: String
+  }
+})
+
 const router = useRouter()
 
 const list = ref([
@@ -61,8 +67,8 @@ const onReportError = () => {
     </div>
     <div class="border-1 border-b-0 text-12px mb-3">
       <div v-for="(i,idx) in list" :key="i.id"  class="item p-2 border-b-1">
-        <p class="leading-30px">{{ idx+1}}.{{i.content}}</p>
-        <van-radio-group icon-size="14px" v-model="i.checked" direction="horizontal">
+        <p class="leading-30px mb-0">{{ idx+1}}.{{i.content}}</p>
+        <van-radio-group v-if="workStatus !== 'finished'" icon-size="14px" v-model="i.checked" direction="horizontal">
           <van-radio :name="true">是</van-radio>
           <van-radio :name="false">否</van-radio>
         </van-radio-group>
@@ -73,7 +79,7 @@ const onReportError = () => {
           提交
         </van-button>
 
-        <van-button block type="danger" @click="onReportError">
+        <van-button v-if="workStatus !== 'finished'" block type="danger" @click="onReportError">
           异常
         </van-button>
       </div>

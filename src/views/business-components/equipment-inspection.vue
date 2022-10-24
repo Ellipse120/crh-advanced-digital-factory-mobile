@@ -1,9 +1,13 @@
 <script setup>
 import { ref } from 'vue'
-import { useDateFormat } from '@vueuse/core'
-import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
-import DateTimePickerWrapper from '../../components/DateTimePickerWrapper.vue'
+
+defineProps({
+  workStatus: {
+    type: String
+  }
+})
+
 const show = ref(false)
 const date = formatTime(new Date(), 'yyyy-MM-dd')
 
@@ -82,8 +86,8 @@ const closePop = () => {
     </div>
     <div class="border-1 border-b-0 text-12px">
       <div v-for="(i,idx) in list" :key="i.id"  class="item p-2 border-b-1">
-        <p class="leading-30px">{{ idx+1}}.{{i.content}}</p>
-        <van-radio-group icon-size="14px" v-model="i.checked" direction="horizontal">
+        <p class="leading-30px mb-0">{{ idx+1}}.{{i.content}}</p>
+        <van-radio-group v-if="workStatus !== 'finished'" icon-size="14px" v-model="i.checked" direction="horizontal">
           <van-radio :name="true">是</van-radio>
           <van-radio :name="false">否</van-radio>
         </van-radio-group>
