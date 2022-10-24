@@ -1,8 +1,15 @@
 <script setup>
 import PageSkeleton  from '../components/PageSkeleton.vue'
+import { useUserInfoStore } from '../stores/user'
+
+const { userInfo } = useUserInfoStore()
 
 </script>
 
 <template>
-  <PageSkeleton>todo</PageSkeleton>
+  <PageSkeleton>
+    <pre>
+      {{userInfo}}
+    </pre>
+  </PageSkeleton>
 </template>
