@@ -28,7 +28,8 @@ import {
     Tab, 
     Tabs,
     Dialog,
-    Tag
+    Tag,
+    Picker
   } from 'vant'
 import 'vant/lib/index.css'
 
@@ -47,6 +48,7 @@ export default {
     app.use(Form)
     app.use(List)
     app.use(NavBar)
+    app.use(Picker)
     app.use(Popup)
     app.use(Row)
     app.use(Sidebar)

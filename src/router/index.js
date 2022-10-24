@@ -58,13 +58,55 @@ const routes = [
     ]
   },
   {
-    path: '/shengchanguocheng',
+    path: '/production-repair',
     component: Layout,
     children: [
       {
         path: '',
-        name: 'Shengchanguocheng',
-        component: () => import('../views/Shengchanguocheng.vue'),
+        name: 'ProductionRepair',
+        component: () => import('../views/ProductionRepair.vue'),
+        meta: {
+          title: '生产过程（检修）'
+        }
+      }
+    ]
+  },
+  {
+    path: '/production-polish',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ProductionPolish',
+        component: () => import('../views/ProductionPolish.vue'),
+        meta: {
+          title: '生产过程（打磨）'
+        }
+      }
+    ]
+  },
+  {
+    path: '/production-tiny-component',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ProductionTinyComponent',
+        component: () => import('../views/ProductionTinyComponent.vue'),
+        meta: {
+          title: '生产过程（小部件）'
+        }
+      }
+    ]
+  },
+  {
+    path: '/production-process',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'ProductionProcess',
+        component: () => import('../views/ProductionProcess.vue'),
         meta: {
           title: '生产过程'
         }

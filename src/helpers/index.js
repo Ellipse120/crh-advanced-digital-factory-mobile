@@ -28,7 +28,14 @@ const formatText = (list, value, keyAlias = 'key', valueAlias = 'value') => {
   return target ? target[valueAlias] : value
 }
 
+const isEmptySlot = (slot, data) => {
+  if (slot) {
+    return slot(data).filter(vnode => vnode.type !== Comment && (vnode.type !== Text || vnode.children.trim() !== ''))
+  }
+}
+
 export {
   formatTime,
-  formatText
+  formatText,
+  isEmptySlot
 }

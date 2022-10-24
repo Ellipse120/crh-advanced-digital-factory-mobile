@@ -309,12 +309,12 @@
   ],
   "hostname": "0.0.0.0",
   "tlsOptions": {
-    "enabled": false,
+    "enabled": true,
     "type": "CERT",
     "pfxPath": "",
     "certPath": "",
     "keyPath": "",
     "caPath": "",
-    "passphrase": ""
+    "passphrase": "lusai"
   }
 }
