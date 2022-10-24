@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import { formatTime } from '@/helpers'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const list = ref([
   {
@@ -28,6 +30,19 @@ const list = ref([
 
   },
 ])
+
+const onSubmit = () => {
+  console.log('submit')
+}
+
+const onReportError = () => {
+  router.push({
+    name: 'ReportError',
+    query: {
+      active: 3
+    }
+  })
+}
 </script>
 
 <template>
@@ -44,7 +59,7 @@ const list = ref([
       <p class="leading-8">吊勾名称：吊勾1</p>
       <p class="leading-8">吊勾编号：S02555-01-2206</p>
     </div>
-    <div class="border-1 border-b-0 text-12px">
+    <div class="border-1 border-b-0 text-12px mb-3">
       <div v-for="(i,idx) in list" :key="i.id"  class="item p-2 border-b-1">
         <p class="leading-30px">{{ idx+1}}.{{i.content}}</p>
         <van-radio-group icon-size="14px" v-model="i.checked" direction="horizontal">
@@ -53,11 +68,14 @@ const list = ref([
         </van-radio-group>
       </div>
     </div>
-    <div class="w-full my-3">
-      <van-button class="w-full" type="primary">确定</van-button>
-    </div>
-    <div class="w-full">
-      <van-button class="w-full">异常</van-button>
-    </div>
+    <div class="grid gap-2">
+        <van-button block type="primary" @click="onSubmit">
+          提交
+        </van-button>
+
+        <van-button block type="danger" @click="onReportError">
+          异常
+        </van-button>
+      </div>
   </div>
 </template>
