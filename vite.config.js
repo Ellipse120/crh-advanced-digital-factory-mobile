@@ -3,12 +3,10 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import basicSsl from '@vitejs/plugin-basic-ssl'
+// import basicSsl from '@vitejs/plugin-basic-ssl'
 import WindiCSS from "vite-plugin-windicss";
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import legacy from '@vitejs/plugin-legacy'
-
-const fs = require('node:fs')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +18,7 @@ export default defineConfig({
       template: { transformAssetUrls }
     }),
     vueJsx(),
-    basicSsl(),
+    // basicSsl(),
     WindiCSS(),
     quasar({
       sassVariables: 'src/assets/quasar-variables.sass'

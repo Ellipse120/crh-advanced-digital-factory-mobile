@@ -1,6 +1,6 @@
 {
   "uuid": "e749bce8-9538-45c1-a3a1-881d1f9d7105",
-  "lastMigration": 22,
+  "lastMigration": 24,
   "name": "CRH Mobile AP",
   "endpointPrefix": "",
   "latency": 0,
@@ -14,7 +14,7 @@
       "responses": [
         {
           "uuid": "d4b15bde-6663-49b5-b1fb-0f57fe41641e",
-          "body": "{\n  \"Templating example\": \"For more information about templating, click the blue 'i' above this editor\",\n  \"users\": [\n    {{# repeat (queryParam 'total' '10') }}\n      {\n        \"userId\": \"{{ faker 'random.number' min=10000 max=100000 }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"date\": \"{{ faker 'date.past' }}\",\n        \"jobNumber\": \"{{ faker 'random.numeric' 4 }}\",\n        \"friends\": [\n          {{# repeat (faker 'random.number' 5) }}\n            {\n              \"id\": \"{{ faker 'random.uuid' }}\"\n            }\n          {{/ repeat }}\n        ]\n      },\n    {{/ repeat }}\n  ],\n  \"total\": \"{{queryParam 'total' '10'}}\"\n}",
+          "body": "{\n  \"Templating example\": \"For more information about templating, click the blue 'i' above this editor\",\n  \"users\": [\n    {{# repeat (queryParam 'total' '10') }}\n      {\n        \"userId\": \"{{ faker 'datatype.number' min=10000 max=100000 }}\",\n        \"firstname\": \"{{ faker 'name.firstName' }}\",\n        \"lastname\": \"{{ faker 'name.lastName' }}\",\n        \"date\": \"{{ faker 'date.past' }}\",\n        \"jobNumber\": \"{{ faker 'random.numeric' 4 }}\",\n        \"friends\": [\n          {{# repeat (faker 'datatype.number' 5) }}\n            {\n              \"id\": \"{{ faker 'datatype.uuid' }}\"\n            }\n          {{/ repeat }}\n        ]\n      },\n    {{/ repeat }}\n  ],\n  \"total\": \"{{queryParam 'total' '10'}}\"\n}",
           "latency": 0,
           "statusCode": 200,
           "label": "Creates 10 random users, or the amount specified in the 'total' query param",
@@ -25,7 +25,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         },
         {
           "uuid": "cc2df7d4-63c5-4377-a349-e0a442ea8b1a",
@@ -40,7 +42,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "databucketID": "",
+          "bodyType": "INLINE"
         }
       ],
       "enabled": true,
@@ -65,7 +69,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         },
         {
           "uuid": "82f556e4-3e5a-4950-800b-97f6b28c5cce",
@@ -88,7 +94,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "databucketID": "",
+          "bodyType": "INLINE"
         },
         {
           "uuid": "1f14844b-b98d-40b0-956e-d69accf04eb5",
@@ -111,7 +119,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "databucketID": "",
+          "bodyType": "INLINE"
         }
       ],
       "enabled": true,
@@ -141,7 +151,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "FILE"
         }
       ],
       "enabled": true,
@@ -171,7 +183,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         }
       ],
       "enabled": true,
@@ -201,7 +215,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         }
       ],
       "enabled": true,
@@ -226,7 +242,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         }
       ],
       "enabled": true,
@@ -251,7 +269,9 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": true
+          "default": true,
+          "databucketID": "",
+          "bodyType": "INLINE"
         },
         {
           "uuid": "7972c133-3b6d-4324-a48e-1c1507aff015",
@@ -266,7 +286,41 @@
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
-          "default": false
+          "default": false,
+          "databucketID": "",
+          "bodyType": "INLINE"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "560df6f8-03fc-4b8c-aac5-0815fd74b470",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "user",
+      "responses": [
+        {
+          "uuid": "89cf1037-c30b-41dd-8a90-45c49faa11df",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "29eb",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -309,12 +363,28 @@
   ],
   "hostname": "0.0.0.0",
   "tlsOptions": {
-    "enabled": true,
+    "enabled": false,
     "type": "CERT",
     "pfxPath": "",
     "certPath": "",
     "keyPath": "",
     "caPath": "",
     "passphrase": "lusai"
-  }
+  },
+  "data": [
+    {
+      "uuid": "3e7d5679-2419-4fb5-be56-b5b7a516cd2c",
+      "id": "29eb",
+      "name": "User",
+      "documentation": "模拟用户",
+      "value": "{\n  \"userId\": \"{{urlParam 'id'}}\",\n  \"name\": \"{{queryParam 'name' 'John'}}\",\n  \"lang\": \"{{{header 'Accept-Language' 'en'}}}\",\n  \"elementTitle\": \"{{body 'elements.0.title' 'default'}}\",\n  \"ip\": \"{{ip}}\",\n  \"method\": \"{{method}}\",\n  \"hostname\": \"{{hostname}}\",\n  \"friends\": [\n    {{#repeat 2}}\n    { \n      \"id\": {{@index}}, \n      \"name\": \"{{faker 'name.firstName'}} {{faker 'name.lastName'}}\" \n    }\n    {{/repeat}}\n  ], \n  \"oneItem\": \"{{oneOf (array 'item1' 'item2' 'item3')}}\", \n  \"someItemsAsString\": \"{{someOf (array 'item1' 'item2' 'item3') 1 2}}\", \n  \"someItemsAsArray\": {{{someOf (array 'item1' 'item2' 'item3') 1 2 true}}}, \n  \"userName\": \n    {{#switch (urlParam 'id')}}\n      {{#case '1'}}\"John\"{{/case}}\n      {{#case '2'}}\"Jack\"{{/case}}\n      {{#default}}\"Peter\"{{/default}}\n    {{/switch}}\n}"
+    },
+    {
+      "uuid": "67db9d9d-7faf-47f8-96ee-dc91a20a4a4b",
+      "id": "ok1g",
+      "name": "New data",
+      "documentation": "",
+      "value": ""
+    }
+  ]
 }
