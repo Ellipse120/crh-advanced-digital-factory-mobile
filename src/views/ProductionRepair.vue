@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useToggle } from '@vant/use'
-import PageSkeleton  from '../components/PageSkeleton.vue'
-import Camera from '@/components/Camera.vue'
+import PageSkeleton from '../components/PageSkeleton.vue'
+import CameraComp from '@/components/CameraComp.vue'
 
 const [visible, toggle] = useToggle()
 
@@ -27,7 +27,7 @@ const onConfirm1 = (value) => {
 }
 
 const handleSuccess = (v) => {
-  console.log(v);
+  console.log(v)
   barCode.value = v
 }
 </script>
@@ -107,7 +107,7 @@ const handleSuccess = (v) => {
     </van-form>
 
     <van-dialog v-model:show="visible" title="扫码" show-cancel-button>
-      <Camera @scan-success="handleSuccess" />
+      <CameraComp @scan-success="handleSuccess" />
     </van-dialog>
 
   </PageSkeleton>

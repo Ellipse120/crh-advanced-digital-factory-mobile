@@ -1,12 +1,12 @@
 <script setup>
 import { useNProgress } from '@vueuse/integrations/useNProgress'
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRequest } from '../composables/useRequest'
 
 const { isLoading, progress } = useNProgress()
 const users = ref([])
 
-function toggle() {
+function toggle () {
   isLoading.value = !isLoading.value
 }
 
@@ -20,9 +20,7 @@ const refresh = () => {
   getUsers()
 }
 
-onMounted(() => {
-  getUsers()
-})
+getUsers()
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import PageWithNavbar  from '../components/PageWithNavbar.vue'
+import PageWithNavbar from '../components/PageWithNavbar.vue'
 import TheWelcome from '../components/TheWelcome.vue'
 </script>
 

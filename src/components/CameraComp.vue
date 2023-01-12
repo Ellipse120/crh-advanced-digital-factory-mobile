@@ -6,11 +6,11 @@ const emit = defineEmits(['scan-success'])
 
 const v = ref(null)
 
-function onScanSuccess(decodedText, decodedResult) {
+function onScanSuccess (decodedText, decodedResult) {
   // handle the scanned code as you like, for example:
   v.value = decodedText
   emit('scan-success', decodedText)
-  console.log(`Code matched = ${decodedText}`, decodedResult);
+  console.log(`Code matched = ${decodedText}`, decodedResult)
 }
 
 onMounted(async () => {
