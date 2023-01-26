@@ -64,7 +64,7 @@ const doSignIn = () => {
     />
 
     <van-divider />
-    
+
     <div :class="value ? 'max-h-90' : 'max-h-77vh'" class=" overflow-auto">
       <div v-for="item in users" :key="item.userId">
         <van-skeleton title avatar :row="2" :loading="loading">
@@ -73,7 +73,7 @@ const doSignIn = () => {
               <div class="bg-blue-500 text-white text-center rounded-full align-middle w-8 mr-2 flex items-center justify-center">{{ item.lastname?.[0] }}</div>
               <div>{{ item.lastname + item.firstname }}</div>
             </div>
-            
+
             <div class="row-span-2 text-right align-middle flex items-center">
               签到：{{ formatter(item.date) }}
             </div>

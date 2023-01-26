@@ -19,7 +19,7 @@ export const useUserInfoStore = defineStore('userInfo', () => {
     token.value = data
   }
 
-  const clearToken = () => { 
+  const clearToken = () => {
     cookies.remove('token')
     token.value = null
   }

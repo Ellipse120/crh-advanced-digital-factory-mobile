@@ -12,7 +12,7 @@ const password = ref(null)
 const title = ref(import.meta.env.VITE_WEBSITE_TITLE)
 
 const onSubmit = async () => {
-  const { data } = await useRequest('login', { 
+  const { data } = await useRequest('login', {
     method: 'post',
     data: {
       username: username.value,

@@ -1,5 +1,5 @@
 <script setup>
-import VantLayout from './layouts/vant.vue'
+import VantLayout from './layouts/vant-layout.vue'
 </script>
 
 <template>

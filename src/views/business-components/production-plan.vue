@@ -1,62 +1,35 @@
 <script setup>
 import { ref } from 'vue'
-import { useDateFormat } from '@vueuse/core'
-import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
-import router from '../../router';
+import router from '../../router'
 
-import DateTimePickerWrapper from '../../components/DateTimePickerWrapper.vue'
-
-const show = ref(false)
 const date = formatTime(new Date(), 'yyyy-MM-dd')
-const query = ref({
-  startDate: null,
-  endDate: null
-})
-
-const timeValue = ref('')
 
 const list = ref([
   {
-    id:1,
+    id: 1,
     trainId: 'CRH400BF-5001'
   },
   {
-    id:2,
+    id: 2,
     trainId: 'CRH400BF-5002'
   },
   {
-    id:3,
+    id: 3,
     trainId: 'CRH400BF-5003'
-  },{
-    id:4,
+  }, {
+    id: 4,
     trainId: 'CRH400BF-5004'
   },
   {
-    id:5,
+    id: 5,
     trainId: 'CRH400BF-5005'
   },
   {
-    id:6,
+    id: 6,
     trainId: 'CRH400BF-5006'
   }
 ])
-
-const resetQuery = () => {
-  closePop()
-}
-
-const doConfirm = () => {
-  closePop()
-}
-
-const showPop = () => {
-  show.value = true
-}
-
-const closePop = () => {
-  show.value = false
-}
 
 const PlanDetail = () => {
   router.push({

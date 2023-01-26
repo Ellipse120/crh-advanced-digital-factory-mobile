@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import { useDateFormat } from '@vueuse/core'
-import { useRequest } from '@/composables/useRequest'
 import { formatTime } from '@/helpers'
 
 defineProps({
@@ -38,13 +36,9 @@ const cancelFn = () => {
       v-bind="$attrs"
       type="year-month"
       :title="title"
-      @confirm="confirmFn()" 
+      @confirm="confirmFn()"
       @cancel="cancelFn()"
     />
 </van-popup>
 </div>
 </template>
-
-<style scoped>
-
-</style>

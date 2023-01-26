@@ -5,7 +5,7 @@ import { useCookies } from '@vueuse/integrations/useCookies'
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/NotFound.vue'
 import Login from '../views/Login.vue'
-import Layout from '../layouts/vant.vue'
+import Layout from '../layouts/vant-layout.vue'
 import { useUserInfoStore } from '../stores/user'
 import { useRequest } from '../composables/useRequest'
 
@@ -184,7 +184,7 @@ const routes = [
     ]
   },
 
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
 
 const router = createRouter({
@@ -192,7 +192,7 @@ const router = createRouter({
   routes: routes
 })
 
-const { start, done } =  useNProgress()
+const { start, done } = useNProgress()
 const cookies = useCookies()
 
 router.beforeEach(async (to) => {
@@ -201,7 +201,7 @@ router.beforeEach(async (to) => {
   start()
   // ✅ This will work because the router starts its navigation after
   // the router is installed and pinia will be installed too
- 
+
   const token = cookies.get('token')
 
   if (token) {

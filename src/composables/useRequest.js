@@ -11,12 +11,12 @@ instance.interceptors.request.use(
   (config) => {
     const store = useUserInfoStore()
     config.headers['Authorization'] = store.token
-    
+
     return config
   },
   (error) => {
     return Promise.reject(error)
-})
+  })
 
 instance.interceptors.response.use(
   (response) => {

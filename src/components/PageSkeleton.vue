@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import PageWithNavbar  from '../components/PageWithNavbar.vue'
+import PageWithNavbar from '../components/PageWithNavbar.vue'
 
 const props = defineProps(['right-nav'])
 const router = useRouter()

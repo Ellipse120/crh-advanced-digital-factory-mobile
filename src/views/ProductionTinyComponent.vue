@@ -1,5 +1,5 @@
 <script setup>
-import PageSkeleton  from '../components/PageSkeleton.vue'
+import PageSkeleton from '../components/PageSkeleton.vue'
 
 </script>
 

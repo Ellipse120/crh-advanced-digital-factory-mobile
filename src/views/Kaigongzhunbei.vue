@@ -19,7 +19,7 @@ const items = ref([
   { text: '设备点检' },
   { text: '工具点检' },
   { text: '物料点检' },
-  { text: '环境检查' },
+  { text: '环境检查' }
 ])
 
 const handleChange = (v) => {

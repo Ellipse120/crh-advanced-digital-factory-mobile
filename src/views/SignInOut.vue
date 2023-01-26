@@ -5,7 +5,7 @@ import { useDateFormat, useNow } from '@vueuse/core'
 import { Toast } from 'vant'
 import { useUserInfoStore } from '../stores/user'
 
-import PageWithNavbar  from '../components/PageWithNavbar.vue'
+import PageWithNavbar from '../components/PageWithNavbar.vue'
 const now = useDateFormat(useNow(), ref('HH:mm:ss'))
 const { userInfo } = useUserInfoStore()
 const router = useRouter()
@@ -30,13 +30,13 @@ const signIn = () => {
             <div class="bg-blue-500 text-white rounded-xl w-20 h-20 text-4xl flex items-center justify-center">
               {{ userInfo.username?.[0] }}
             </div>
-            
+
             <div>
               <div class="flex items-center justify-between w-50">
                 <div class="mr-4">{{ userInfo.username }}</div>
                 <div>{{ userInfo.job }}</div>
               </div>
-          
+
               <div>工号：{{ userInfo.jobNumber }}</div>
             </div>
           </div>

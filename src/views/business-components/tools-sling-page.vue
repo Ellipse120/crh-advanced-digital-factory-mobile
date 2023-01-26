@@ -34,7 +34,7 @@ const list = ref([
     content: '尼龙绳无拉毛',
     checked: null
 
-  },
+  }
 ])
 
 const onSubmit = () => {
@@ -54,10 +54,10 @@ const onReportError = () => {
 <template>
   <div class="px-2">
     <div class="flex py-4">
-      <div 
-        class="w-6 h-6 bg-gray-300 leading-6 text-center mr-2 rounded-full" 
+      <div
+        class="w-6 h-6 bg-gray-300 leading-6 text-center mr-2 rounded-full"
         :class="{'bg-green-500': i.checked === true, 'bg-red-500': i.checked === false}"
-        v-for="i in list" 
+        v-for="i in list"
         :key="i.key"
       >{{i.key}}</div>
     </div>

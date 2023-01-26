@@ -1,8 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useUserInfoStore } from '../stores/user'
-import { isEmptySlot } from '@/helpers'
+import { useUserInfoStore } from '@/stores/user'
 
 const router = useRouter()
 const route = useRoute()
@@ -21,8 +20,6 @@ const logout = () => {
     name: 'Login'
   })
 }
-
-const isEmptySlotHelper = isEmptySlot
 </script>
 
 <template>

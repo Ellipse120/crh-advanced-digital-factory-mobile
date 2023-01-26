@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Toast, Dialog } from 'vant'
-import PageWithNavbar  from '../components/PageWithNavbar.vue'
+import PageWithNavbar from '../components/PageWithNavbar.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -11,7 +11,7 @@ const t1 = ref(null)
 const onCancel = () => {
   Dialog.confirm({
     title: '退出确认',
-    message:'资料尚未保存，是否取消编辑？'
+    message: '资料尚未保存，是否取消编辑？'
   })
     .then(() => {
       router.push({
@@ -22,7 +22,7 @@ const onCancel = () => {
       })
     })
     .catch(() => {
-      console.log('cancel');
+      console.log('cancel')
     })
 }
 
@@ -64,7 +64,7 @@ const onSave = () => {
           placeholder="请填写"
           :rules="[{ required: true, message: '请填写' }]"
         />
-        
+
         <van-field
           v-model="t1"
           name="异常类别"
@@ -115,7 +115,7 @@ const onSave = () => {
         <van-button block type="info" class="!mt-4"  @click="onCancel">
           取消
         </van-button>
-      </van-cell-group> 
+      </van-cell-group>
 
       <van-divider />
 
